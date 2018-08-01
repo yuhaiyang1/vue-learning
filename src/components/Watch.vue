@@ -4,7 +4,8 @@
         Ask a yes/no question:
         <input v-model="question">
     </p>
-    <p>{{ answer }}</p>
+    <p class="active">{{ answer }}</p>
+    <div v-bind:class="[isActive ? 'text-danger' : 'active']">111</div>
     </div>    
 </template>
 
@@ -15,6 +16,7 @@
     name: 'child1',
     data (){
       return { question: '',
+          isActive: true,
         answer: 'I cannot give you an answer until you ask a question!'}
      },
      watch: {
@@ -51,3 +53,13 @@
     }
   }
 </script>
+<style>
+  .active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	background: red;
+}
+</style>
